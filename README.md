@@ -171,12 +171,6 @@ Through this project, the following concepts were strengthened:
 
 ---
 
-## Resume Description
-
-Developed a Java-based Hospital Management System to efficiently manage patient records, appointments, billing, and user authentication. Implemented JDBC-based CRUD operations with MySQL using a structured DAO and service-layer architecture. Applied OOP principles, MVC architecture, exception handling, and role-based access control to build a secure, maintainable, and scalable application.
-
----
-
 ## Author
 
 **Dharshan R**
