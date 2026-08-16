@@ -1,130 +1,138 @@
-# Hospital Management System
+# 🏥 Hospital Management System
 
-## Overview
+<div align="center">
 
-Hospital Management System is a Java-based application designed to streamline hospital operations by managing patients, appointments, billing, and user authentication. The system provides a structured and secure approach to handling healthcare data while ensuring efficient database management through JDBC and MySQL integration.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![JDBC](https://img.shields.io/badge/JDBC-Database-CC6699?style=for-the-badge)
+![RBAC](https://img.shields.io/badge/RBAC-Enabled-28A745?style=for-the-badge)
 
-The project follows Object-Oriented Programming (OOP) principles and the MVC (Model-View-Controller) architecture to create a maintainable, scalable, and organized application.
+</div>
+
+<div align="center">
+
+## 🚀 Smart healthcare management for patients, doctors, and admins
+
+A Java-based hospital management application built to manage patients, appointments, billing, user auth, and role-based access using JDBC and MySQL.
+
+</div>
 
 ---
 
-## Features
+## ✨ Overview
+
+The Hospital Management System is designed to streamline hospital operations by keeping patient records, consultation schedules, billing, and user access organized in one application.
+
+It follows clean object-oriented design principles and a modular layered architecture to make the system maintainable and easier to extend.
+
+---
+
+## 🩺 Features
 
 ### Patient Management
-
-* Add new patient records
-* View patient details
-* Update patient information
-* Delete patient records
+- Add patient records
+- View patient details
+- Update patient information
+- Delete patient records
 
 ### Appointment Management
-
-* Schedule appointments
-* View appointment history
-* Manage appointment records
+- Book appointments
+- View appointment records
+- Cancel appointments
 
 ### Billing Management
+- Generate bills
+- View billing history
+- Update payment status
 
-* Generate patient bills
-* View billing information
-* Update billing records
-
-### User Authentication
-
-* Secure login functionality
-* Role-Based Access Control (RBAC)
-* Separate access levels for different users
+### Authentication & Access Control
+- Secure login
+- Role-based access control
+- Separate dashboards for admin, doctor, and receptionist
 
 ### Database Operations
-
-* JDBC-based database connectivity
-* CRUD (Create, Read, Update, Delete) operations
-* Reliable data storage using MySQL
-
----
-
-## Tech Stack
-
-| Technology         | Purpose                      |
-| ------------------ | ---------------------------- |
-| Java               | Core Application Development |
-| JDBC               | Database Connectivity        |
-| MySQL              | Relational Database          |
-| OOP                | Software Design Principles   |
-| MVC Architecture   | Application Structure        |
-| Exception Handling | Error Management             |
+- JDBC integration with MySQL
+- CRUD support
+- Structured data handling
 
 ---
 
-## Architecture
+## 🧩 Tech Stack
 
-The project follows the **MVC Architecture**:
+| Technology | Purpose |
+| --- | --- |
+| Java | Core application logic |
+| JDBC | Database connectivity |
+| MySQL | Data storage and management |
+| OOP | Clean software design |
+| MVC-style structure | Organizational architecture |
+| Exception Handling | Reliable error management |
+
+---
+
+## 🏗️ Architecture
+
+The project follows a layered structure inspired by MVC and DAO patterns:
 
 ### Model Layer
-
-* Represents business entities such as Patients, Appointments, Bills, and Users.
-
-### View Layer
-
-* Handles user interaction through the console interface.
-
-### Controller Layer
-
-* Processes user requests and coordinates between the View and Service layers.
+- Represents entities such as `User`, `Patient`, `Doctor`, `Appointment`, and `Bill`
 
 ### Service Layer
-
-* Contains business logic and validation.
+- Contains business logic and validation
 
 ### DAO Layer
+- Handles database access using JDBC
 
-* Manages database operations using JDBC.
-
----
-
-## Key Concepts Implemented
-
-* Object-Oriented Programming (OOP)
-* Encapsulation
-* Inheritance
-* Polymorphism
-* Abstraction
-* MVC Architecture
-* DAO Design Pattern
-* JDBC Connectivity
-* Exception Handling
-* Role-Based Access Control (RBAC)
+### Main / Console Layer
+- Connects user interaction to system workflows
 
 ---
 
-## Project Structure
+## 🔐 Role-Based Access Control (RBAC)
+
+The system supports role-based login behavior:
+
+- `ADMIN` → full management access
+- `DOCTOR` → doctor-specific dashboard
+- `RECEPTIONIST` → patient and appointment operations
+
+This is implemented by checking the user role returned from the database after successful login.
+
+---
+
+## 📁 Project Structure
 
 ```text
 Hospital-Management-System/
 │
 ├── src/
+│   ├── main/
 │   ├── model/
-│   ├── controller/
 │   ├── service/
 │   ├── dao/
 │   ├── util/
-│   └── main/
+│   └── ...
 │
 ├── database/
-│   └── hospital_db.sql
+│   └── hospital.sql
 │
-└── README.md
+├── lib/
+│   └── mysql-connector-j-9.7.0.jar
+│
+├── out/
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
 ### Prerequisites
-
-* Java JDK 8 or above
-* MySQL Server
-* IDE (IntelliJ IDEA / Eclipse)
+- Java JDK 8 or above
+- MySQL Server
+- MySQL Workbench or CLI
+- IDE such as IntelliJ IDEA or Eclipse
 
 ### Steps
 
@@ -134,47 +142,74 @@ Hospital-Management-System/
 git clone https://github.com/dharshanworks/Hospital-Management-System.git
 ```
 
-2. Create a MySQL database.
+2. Open MySQL Workbench or MySQL CLI.
 
-3. Import the database schema.
+3. Create the `hospital_db` database and required tables.
 
-4. Configure database credentials in the JDBC configuration file.
+4. Insert the default users for login.
 
-5. Compile and run the application.
+5. Configure database credentials in the application.
 
----
+6. Compile and run:
 
-## Learning Outcomes
-
-Through this project, the following concepts were strengthened:
-
-* Java Programming Fundamentals
-* Database Design and Management
-* JDBC Connectivity
-* MVC Architecture
-* DAO Design Pattern
-* Authentication and Authorization
-* Exception Handling
-* Software Engineering Best Practices
+```powershell
+cd "d:\PROJECTS\Hospital Management"
+javac -cp "lib/mysql-connector-j-9.7.0.jar" -d out (Get-ChildItem -Path src -Recurse -Filter *.java | Select-Object -ExpandProperty FullName)
+java -cp "out;lib/mysql-connector-j-9.7.0.jar" main.HospitalManagementSystem
+```
 
 ---
 
-## Future Enhancements
+## 🧪 Default Login Credentials
 
-* Spring Boot Integration
-* RESTful APIs
-* Web-Based User Interface
-* Docker Deployment
-* Cloud Integration (AWS)
-* Email and SMS Notifications
-* Report Generation
+```text
+admin / admin123
+doctor / doctor123
+reception / reception123
+```
+
+> These credentials are stored in the `users` table and are used to determine the role after successful login.
 
 ---
 
-## Author
+## 🎯 Learning Outcomes
+
+This project strengthens understanding in:
+- Java fundamentals
+- Database design
+- JDBC connectivity
+- Role-based access control
+- Object-oriented programming
+- DAO design patterns
+- Software engineering best practices
+
+---
+
+## 🔮 Future Enhancements
+
+- Spring Boot migration
+- REST API development
+- Web-based frontend
+- Docker deployment
+- Cloud hosting integration
+- Notifications and reports
+- Improved analytics dashboard
+
+---
+
+## 👨‍💻 Author
 
 **Dharshan R**
-B.Tech Information Technology
+
+B.Tech Information Technology  
 Sri Shakthi Institute of Engineering and Technology
 
 GitHub: https://github.com/dharshanworks
+
+---
+
+<div align="center">
+
+⭐ If you like this project, give it a star and share it with others.
+
+</div>
