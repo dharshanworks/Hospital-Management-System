@@ -40,6 +40,8 @@ public class HospitalManagementSystem {
             adminMenu();
         } else if (loggedInUser.getRole().equalsIgnoreCase("DOCTOR")) {
             doctorDashboard(loggedInUser);
+        } else if (loggedInUser.getRole().equalsIgnoreCase("RECEPTIONIST")) {
+            receptionistMenu();
         } else {
             System.out.println("Invalid role. Access denied.");
         }
@@ -152,6 +154,49 @@ public class HospitalManagementSystem {
             }
 
         } while (choice != 4);
+    }
+
+    private static void receptionistMenu() {
+
+        int choice;
+
+        do {
+            System.out.println("\n========== RECEPTIONIST DASHBOARD ==========");
+            System.out.println("1. Patient Management");
+            System.out.println("2. View All Appointments");
+            System.out.println("3. Book Appointment");
+            System.out.println("4. View All Doctors");
+            System.out.println("5. Logout / Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = readInt();
+
+            switch (choice) {
+                case 1:
+                    patientManagementMenu();
+                    break;
+
+                case 2:
+                    viewAllAppointments();
+                    break;
+
+                case 3:
+                    bookAppointment();
+                    break;
+
+                case 4:
+                    viewAllDoctors();
+                    break;
+
+                case 5:
+                    System.out.println("Logged out successfully.");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+        } while (choice != 5);
     }
 
     private static void viewLoggedInDoctorDetails(User loggedInUser) {
